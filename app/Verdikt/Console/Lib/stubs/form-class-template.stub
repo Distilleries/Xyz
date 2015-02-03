@@ -1,0 +1,13 @@
+<?php namespace {{namespace}};
+
+use Verdikt\Forms\FormValidator;
+
+class {{class}} extends FormValidator
+{
+    public function buildForm()
+    {
+        {{fields}}
+
+         $this->addDefaultActions();
+    }
+}

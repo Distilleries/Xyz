@@ -1,0 +1,20 @@
+<?php namespace {{namespace}};
+
+use Verdikt\Contracts\StateDisplayerContract;
+use Verdikt\Controllers\AdminBaseController;
+use Forms\{{form}};
+use Datatables\{{datatable}};
+
+
+class {{class}} extends AdminBaseController {
+
+    {{trait}}
+
+
+
+    // ------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------
+
+
+}

@@ -62,10 +62,22 @@ App::error(function(Exception $exception, $code)
 |
 */
 
+
+App::down(function()
+{
+    if (Request::segment(1) == Config::get('backend.admin_base_uri'))
+    {
+        $content = View::make("admin.errors.down",['code'=>503] );
+        return Response::make($content, 503);
+    }
+
+});
+/*
+
 App::down(function()
 {
 	return Response::make("Be right back!", 503);
-});
+});*/
 
 /*
 |--------------------------------------------------------------------------

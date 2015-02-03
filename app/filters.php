@@ -11,16 +11,29 @@
 |
 */
 
-App::before(function($request)
+App::before(function ($request)
 {
-	//
+    $autoLoaderListener = new \Verdikt\Register\ListenerAutoLoader(Config::get('listener.listener'));
+    $autoLoaderListener->load();
 });
 
 
-App::after(function($request, $response)
+App::after(function ($request, $response)
 {
-	//
+    //
 });
+
+App::error(function (Exception $exception, $code)
+{
+    if (Request::segment(1) == Config::get('backend.admin_base_uri') and !Config::get('app.debug'))
+    {
+        return App::make('Verdikt\Controllers\AdminErrorController')->callAction("display", [$exception, $code]);
+    }
+
+
+});
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,25 +46,39 @@ App::after(function($request, $response)
 |
 */
 
-Route::filter('auth', function()
+Route::filter('admin.auth', function ()
 {
-	if (Auth::guest())
-	{
-		if (Request::ajax())
-		{
-			return Response::make('Unauthorized', 401);
-		}
-		else
-		{
-			return Redirect::guest('login');
-		}
-	}
+    if (!Auth::administrator()->check())
+    {
+        if (Request::ajax())
+        {
+            return Response::make('Unauthorized', 401);
+        } else
+        {
+            return Redirect::guest(Config::get('backend.login_uri'));
+        }
+    }
 });
 
-
-Route::filter('auth.basic', function()
+Route::filter('admin.auth.redirect', function ()
 {
-	return Auth::basic();
+    if (Auth::administrator()->check() and Route::current()->getActionName() != 'Admin\LoginController@getLogout')
+    {
+        return Redirect::to(Auth::administrator()->get()->getFirstRedirect(Config::get('menu.left')));
+    }
+});
+
+Route::filter('auth.anthorized', function ()
+{
+    if (!Auth::administrator()->check() or !Auth::administrator()->get()->hasAccess(Route::getCurrentRoute()->getActionName()))
+    {
+        App::abort(403, Lang::get('errors.unthorized'));
+    }
+});
+
+Route::filter('auth.basic', function ()
+{
+    return Auth::basic();
 });
 
 /*
@@ -65,9 +92,9 @@ Route::filter('auth.basic', function()
 |
 */
 
-Route::filter('guest', function()
+Route::filter('guest', function ()
 {
-	if (Auth::check()) return Redirect::to('/');
+    if (Auth::check()) return Redirect::to('/');
 });
 
 /*
@@ -81,10 +108,10 @@ Route::filter('guest', function()
 |
 */
 
-Route::filter('csrf', function()
+Route::filter('csrf', function ()
 {
-	if (Session::token() !== Input::get('_token'))
-	{
-		throw new Illuminate\Session\TokenMismatchException;
-	}
+    if (Session::token() !== Input::get('_token'))
+    {
+        throw new Illuminate\Session\TokenMismatchException;
+    }
 });

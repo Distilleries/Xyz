@@ -5,22 +5,42 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends \Verdikt\Models\BaseModel implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait;
+    use UserTrait, RemindableTrait, \Verdikt\Models\StatusTrait;
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'users';
+    protected $fillable = [
+        'email',
+        'password',
+        'status',
+        'role_id'
+    ];
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password', 'remember_token');
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = array('password', 'remember_token');
+
+    public function role()
+    {
+        return $this->belongsTo('Role');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+        User::observe(new \Verdikt\Observers\PasswordObserver);
+    }
+
 
 }
