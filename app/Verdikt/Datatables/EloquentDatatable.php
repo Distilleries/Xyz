@@ -59,11 +59,11 @@ abstract class EloquentDatatable {
     public function applyFilters()
     {
         $allInput = Input::all();
-        $columns = \Schema::getColumnListing($this->model->getTable());
+        $columns  = \Schema::getColumnListing($this->model->getTable());
 
         foreach ($allInput as $name => $input)
         {
-            if (in_array($name,$columns) and $input != '')
+            if (in_array($name, $columns) and $input != '')
             {
 
                 $this->model = $this->model->where($name, '=', $input);
@@ -98,11 +98,23 @@ abstract class EloquentDatatable {
             }
         }
 
+        $datatable = $this->setClassRow($datatable);
         $datatable->orderColumns($colSearchAndSort);
         $datatable->searchColumns($colSearchAndSort);
 
         return $datatable->make();
 
+    }
+
+    public function setClassRow($datatable)
+    {
+        //DT_RowClass
+        $datatable->setRowClass(function ($row)
+        {
+            return (isset($row->status) and empty($row->status)) ? 'danger' : '';
+        });
+
+        return $datatable;
     }
 
     // ------------------------------------------------------------------------------------------------

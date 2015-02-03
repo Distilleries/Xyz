@@ -16,6 +16,36 @@
 		<!-- BEGIN TOP NAVIGATION MENU -->
 		<div class="top-menu">
 			<ul class="nav navbar-nav pull-right">
+                <?php $languages = Language::all(); ?>
+                @if(!empty($languages))
+                <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                    <?php
+                    $iso = explode('_',L4gettext::getLocale());
+                    $iso = isset($iso[1])?strtolower($iso[1]):strtolower($iso[0]);
+                    ?>
+                    <span class="flags-sprite flags-{{ $iso  }}"></span>
+                    <span class="badge badge-grey">{{ count($languages) }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach($languages as $language)
+                                <?php
+                                $iso = explode('_',$language['iso']);
+                                $iso = isset($iso[1])?strtolower($iso[1]):strtolower($iso[0]);
+                                ?>
+                                <li>
+                                    <a href="/set-locale/{{$language['iso']}}">
+                                        <span class="details">
+                                            <span class="flags-sprite flags-{{ $iso }}"></span>
+                                            {{ $language['libelle'] }}
+                                        </span>
+                                    </a>
+                                </li>
+                        @endforeach
+                    </ul>
+                </li>
+                @endif
+
 
 				<?php $tasks = Config::get('menu.tasks'); ?>
 				@if(!empty($tasks))

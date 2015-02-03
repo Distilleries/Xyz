@@ -104,9 +104,13 @@ return array(
          * the default is an an empty [array()]
          */
         'additional_input_folders' => array(
-           'app/Verdikt',
-           'app/controllers',
-           'app/lang/en'
+            'app/controllers',
+            'app/lang/en',
+            'app/Verdikt/Config',
+            'app/Verdikt/Forms',
+            'app/Verdikt/Datatables',
+            'app/Verdikt/States'
+
         ),
         /**
          * output folder where the po(t) file will be stored
@@ -119,7 +123,7 @@ return array(
          * if left empty, ASCII will be used
          * the default is [utf8]
          */
-        'from_code'        => 'utf8',
+        'from_code'        => 'utf-8',
         /**
          * copright holder
          * this will be added to the .po(t) file to ensure your texts remain your property

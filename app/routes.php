@@ -45,6 +45,7 @@ Route::group(array('before' => 'admin.auth'), function ()
         Route::controller('role', 'Admin\RoleController');
         Route::controller('service', 'Admin\ServiceController');
         Route::controller('permission', 'Admin\PermissionController');
+        Route::controller('language', 'Admin\LanguageController');
     });
 });
 

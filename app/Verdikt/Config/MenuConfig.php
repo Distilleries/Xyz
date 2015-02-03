@@ -96,6 +96,24 @@ class MenuConfig {
                         ]
                     ]
                 ],
+                [
+                    'icon'    => 'flag',
+                    'action'  => 'Admin\LanguageController@getIndex',
+                    'libelle' => _('Language'),
+                    'submenu' => [
+                        [
+                            'icon'    => 'th-list',
+                            'libelle' => _('List of language'),
+                            'action'  => 'Admin\LanguageController@getIndex',
+                        ],
+                        [
+                            'icon'    => 'pencil',
+                            'libelle' => _('Add Language'),
+                            'action'  => 'Admin\LanguageController@getEdit',
+                        ]
+
+                    ]
+                ],
             ],
 
             'tasks' => [
