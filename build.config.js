@@ -46,7 +46,8 @@ module.exports = {
                 'bower_components/jquery-locationpicker-plugin/src/locationpicker.jquery.js',
                 'bower_components/iCheck/icheck.js',
                 'bower_components/jquery.inputmask/dist/jquery.inputmask.bundle.min.js',
-                'app/assets/admin/js/lib/*.js',
+                'vendor/distilleries/expendable/assets/admin/js/lib/*.js',
+                'vendor/distilleries/expendable/assets/admin/js/**/*.js',
                 'app/assets/admin/js/**/*.js'
 
             ],
@@ -62,6 +63,7 @@ module.exports = {
                 'bower_components/bootstrap-datepicker/css/datepicker.css'
             ],
             img: [
+                'vendor/distilleries/expendable/assets/admin/images/**/*',
                 'app/assets/admin/images/**/*'
             ],
             fonts: [
