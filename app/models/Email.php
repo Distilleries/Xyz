@@ -1,8 +1,8 @@
 <?php
 
-class Email extends \Verdikt\Models\BaseModel implements \Verdikt\Contracts\MailModelContract {
+class Email extends \Distilleries\Expendable\Models\BaseModel implements \Distilleries\Expendable\Contracts\MailModelContract {
 
-    use \Verdikt\Models\StatusTrait;
+    use \Distilleries\Expendable\Models\StatusTrait;
     protected $fillable = [
         'libelle',
         'body_type',

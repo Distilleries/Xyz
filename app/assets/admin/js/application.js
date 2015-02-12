@@ -29,6 +29,7 @@ dist.Project.Global.prototype = {
     onDocumentReady: function () {
         this.initValidator();
         this.initTemplate();
+        this.initMask();
     },
 
     // --------------------------------------------------------------------------------------------
@@ -42,6 +43,9 @@ dist.Project.Global.prototype = {
         jQuery('form').validationEngine({
             promptPosition: "topLeft"
         });
+    },
+    initMask: function () {
+        jQuery(":input").inputmask();
     },
 
     initTemplate: function () {

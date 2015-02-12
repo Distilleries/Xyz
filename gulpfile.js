@@ -5,7 +5,7 @@
 
 // Load plugins
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
+    sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
@@ -26,90 +26,69 @@ var gulp = require('gulp'),
 
 var userConfig = require('./build.config.js');
 
-gulp.task('bower', function () {
-    return bower(userConfig.build_bower_dir);
-});
+/**
+ * Method to copy files to another folder
+ * @param src
+ * @param dest
+ * @returns {*}
+ */
+gulp.copy=function(src,dest){
+    return gulp.src(src)
+        .pipe(gulp.dest(dest));
+};
 
-// Styles
-gulp.task('styles',['sass'], function () {
+/**
+ * Build images
+ * @param config
+ */
+gulp.imageBuild= function(config){
+    return gulp.src(config.app_files.img)
+        .pipe((imagemin({optimizationLevel: 3, progressive: true, interlaced: true})))
+        .pipe(gulp.dest(config.build_image_dir));
+};
 
-    return gulp.src(userConfig.app_files.css)
-        .pipe(concat(userConfig.css_admin_concat_name))
-        .pipe(minifycss())
-        .pipe(gulp.dest(userConfig.build_css_dir));
-});
-
-
-gulp.task('sass', function () {
-   return  gulp.src(userConfig.app_files.sass)
-        .pipe(sass({style: 'expanded'}))
-        .on('error', function (err) {
-            console.log(err.message)
-        })
-        // .pipe(autoprefixer('last 10 versions'))
-        .pipe(gulp.dest(userConfig.build_css_dir))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(userConfig.build_css_dir));
-});
-
-// Scripts
-gulp.task('scripts', function () {
-    return gulp.src(userConfig.app_files.js)
+/**
+ * Build javascript
+ * @param config
+ */
+gulp.jsBuild= function(config){
+    return gulp.src(config.app_files.js)
         // .pipe(jshint(userConfig.js_hint_file))
         //.pipe(jshint.reporter('default'))
-        .pipe(concat(userConfig.js_default_file_generate))
-        .pipe(gulp.dest(userConfig.build_js_dir))
+        .pipe(concat(config.js_default_file_generate))
+        .pipe(gulp.dest(config.build_js_dir))
         .pipe(rename({suffix: '.min'}))
-       // .pipe(uglify())
-        .pipe(gulp.dest(userConfig.build_js_dir))
-        .pipe(notify({message: 'Scripts task complete'}));
-});
+        .pipe(uglify())
+        .pipe(gulp.dest(config.build_js_dir));
+};
 
-// Images
-gulp.task('images', function () {
-    return gulp.src(userConfig.app_files.img)
-        .pipe((imagemin({optimizationLevel: 3, progressive: true, interlaced: true})))
-        .pipe(gulp.dest(userConfig.build_image_dir));
-});
+/**
+ * Generate the css part of the application
+ * @param config
+ * @returns {*}
+ */
+gulp.cssBuild= function(config){
 
-gulp.task('tinymce', function () {
-    return gulp.src(userConfig.app_files.tinyMceCopySkeen)
-        .pipe(gulp.dest(userConfig.app_files.totinyMceCopySkeen));
-});
-gulp.task('fonts', function () {
-    return gulp.src(userConfig.app_files.fonts)
-        .pipe(gulp.dest('public/assets/css/fonts'));
-});
+    var vendorFiles = gulp.src(config.app_files.css).pipe(minifycss());
+    var appFiles = gulp.src(config.app_files.sass)
+        .pipe(sass({
+            outputStyle: 'compressed',
+            compass: true
+        }));
 
-// Clean
-gulp.task('clean', function (cb) {
-    del([userConfig.build_css_dir, userConfig.build_js_dir, userConfig.build_image_dir], cb)
-});
+    return es.concat(vendorFiles,appFiles)
+        .pipe(concat(config.css_admin_concat_name))
+        .pipe(autoprefixer('last 10 version'))
+        .pipe(gulp.dest(config.build_css_dir))
+        .pipe(gulp.dest(config.build_css_dir));
+};
 
-
-// Watch
-gulp.task('watch', function () {
-
-    // Watch .scss files
-    gulp.watch(userConfig.app_files.sass_watch, ['styles']);
-    gulp.watch(userConfig.app_files.css, ['styles']);
-
-    // Watch .js files
-    gulp.watch(userConfig.app_files.js, ['scripts']);
-
-    // Watch image files
-    gulp.watch(userConfig.app_files.ing, ['images']);
-
-    // Create LiveReload server
-    livereload.listen();
-
-    // Watch any files in dist/, reload on change
-    gulp.watch([userConfig.build_dir + '**']).on('change', livereload.changed);
-
-});
-
-
-function inc(importance) {
+/**
+ * Method to create tag and commit element for the version of assets application
+ * @param importance
+ * @returns {*}
+ */
+gulp.inc = function(importance) {
 // get all the files to bump version in
     return gulp.src(userConfig.version)
         // bump the version number in those files
@@ -118,30 +97,117 @@ function inc(importance) {
         .pipe(gulp.dest('./'))
         // commit the changed version number
         .pipe(git.commit('bumps package version'))
-
         // read only one file to get the version number
         .pipe(filter('package.json'))
         // **tag it in the repository**
         .pipe(tag_version());
-}
+};
+
+/**
+ * Get the bower components
+ */
+gulp.task('bower', function () {
+    return bower(userConfig.build_bower_dir);
+});
+
+
+
+// Styles
+gulp.task('styles', ['css'], function () {
+    gulp.start('fonts','tinymce');
+    return notify({message: 'Styles task complete'});
+});
+
+// Css
+gulp.task('css', function () {
+    return gulp.cssBuild(userConfig.admin).pipe(gulp.cssBuild(userConfig.front));
+});
+
+
+// Scripts
+gulp.task('scripts', function () {
+    gulp.jsBuild(userConfig.admin);
+    gulp.jsBuild(userConfig.front);
+    return notify({message: 'Scripts task complete'});
+});
+
+// Images
+gulp.task('images', function () {
+    gulp.imageBuild(userConfig.admin);
+    return gulp.imageBuild(userConfig.front);
+});
+
+
+//tinymce
+gulp.task('tinymce', function () {
+
+    var result;
+    var files = userConfig.admin.app_files.copyfiles;
+    for(var i in files){
+        result = gulp.copy(files[i][0],files[i][1]);
+    }
+
+    files = userConfig.front.app_files.copyfiles;
+    for(i in files){
+        result = gulp.copy(files[i][0],files[i][1]);
+    }
+    return  result;
+});
+
+
+//fonts
+gulp.task('fonts', function () {
+    gulp.copy(userConfig.admin.app_files.fonts,userConfig.admin.build_font_dir);
+    return gulp.copy(userConfig.front.app_files.fonts,userConfig.front.build_font_dir);
+
+});
+
+// Clean
+gulp.task('clean', function (cb) {
+    del([userConfig.base_asset], cb)
+});
+
+
+// Watch
+gulp.task('watch', function () {
+
+    // Watch .scss files
+    gulp.watch(userConfig.admin.app_files.sass_watch, ['css']);
+    gulp.watch(userConfig.admin.app_files.css, ['css']);
+    gulp.watch(userConfig.front.app_files.sass_watch, ['css']);
+    gulp.watch(userConfig.front.app_files.css, ['css']);
+
+    // Watch .js files
+    gulp.watch(userConfig.admin.app_files.js, ['scripts']);
+    gulp.watch(userConfig.front.app_files.js, ['scripts']);
+
+    // Watch image files
+    gulp.watch(userConfig.admin.app_files.img, ['images']);
+    gulp.watch(userConfig.front.app_files.img, ['images']);
+
+    // Create LiveReload server
+    livereload.listen();
+
+    // Watch any files in dist/, reload on change
+    gulp.watch([userConfig.base_asset + '**']).on('change', livereload.changed);
+
+});
+
+
+
 
 gulp.task('patch', function () {
-    return inc('patch');
+    return gulp.inc('patch');
 });
 gulp.task('feature', function () {
-    return inc('minor');
+    return gulp.inc('minor');
 });
 gulp.task('release', function () {
-    return inc('major');
+    return gulp.inc('major');
 });
 
 
 // Default task
-gulp.task('generate_style', ['styles'], function () {
-    gulp.start('fonts','tinymce');
-});
-
-// Default task
-gulp.task('default', ['clean'], function () {
-    gulp.start('bower', 'generate_style', 'scripts', 'images');
+gulp.task('default', ['clean','bower'], function () {
+    gulp.start('styles', 'scripts', 'images');
 });

@@ -3,7 +3,7 @@
 namespace Admin;
 
 
-class EmailController extends \Verdikt\Controllers\Admin\EmailController {
+class EmailController extends \Distilleries\Expendable\Controllers\Admin\EmailController {
 
 
 }

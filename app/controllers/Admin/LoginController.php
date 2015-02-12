@@ -2,7 +2,7 @@
 
 namespace Admin;
 
-class LoginController extends \Verdikt\Controllers\Admin\LoginController {
+class LoginController extends \Distilleries\Expendable\Controllers\Admin\LoginController {
 
 
 }

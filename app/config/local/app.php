@@ -19,5 +19,5 @@ return array(
         'Way\Generators\GeneratorsServiceProvider'
     )),
 
-    'url'             => '//scolicare.dev',
+    'url'             => '//xyz.dev',
 );

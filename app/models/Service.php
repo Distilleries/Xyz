@@ -1,6 +1,6 @@
 <?php
 
-class Service extends \Verdikt\Models\BaseModel {
+class Service extends \Distilleries\Expendable\Models\BaseModel {
 
     protected $fillable = ['id'];
 

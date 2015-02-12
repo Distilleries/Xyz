@@ -8,12 +8,12 @@ return array(
      * set the preferred default locale according to [2letterlanguagecode_2LETTERCOUNTRYCODE]
      * the default is [en_US]
      */
-    'default_locale'   => 'english-aus',
+    'default_locale'   => $_ENV['gettext.default_locale'],
     /**
      * set preferred default encoding
      * the default is [utf8]
      */
-    'default_encoding' => 'utf8',
+    'default_encoding' => $_ENV['gettext.default_encoding'],
     /**
      * determines the text domain; this should be unique for each application
      * the default is [messages]

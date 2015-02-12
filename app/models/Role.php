@@ -1,6 +1,6 @@
 <?php
 
-class Role extends \Verdikt\Models\BaseModel {
+class Role extends \Distilleries\Expendable\Models\BaseModel {
 
     protected $fillable = [
         'libelle',
@@ -15,5 +15,15 @@ class Role extends \Verdikt\Models\BaseModel {
     public function permissions()
     {
         return $this->hasMany('Permission');
+    }
+
+    public function scopeClinic()
+    {
+        return $this->where('initials', '=', '@cl');
+    }
+
+    public function scopeCustomer()
+    {
+        return $this->where('initials', '=', '@cu');
     }
 }

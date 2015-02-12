@@ -10,10 +10,7 @@ Thumbs.db
 .env*
 node_modules
 .sass-cache
-public/assets/css
-public/assets/js
-public/assets/img
-public/assets/fonts
+public/assets
 bower_components
 app/storage/*
 npm-debug.log

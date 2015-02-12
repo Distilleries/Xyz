@@ -28,6 +28,7 @@ return array(
         "utf16le",
         "utf7",
         "utf7imap",
+        "UTF-8",
         "utf8",
         "ascii",
         "eucjp",

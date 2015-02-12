@@ -1,6 +1,6 @@
 <?php
 
-class Permission extends \Verdikt\Models\BaseModel {
+class Permission extends \Distilleries\Expendable\Models\BaseModel {
 
     protected $fillable = [
         'id',

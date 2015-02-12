@@ -37,6 +37,11 @@ dist.Form.User.Global.prototype = {
         if ($element.length > 0) {
             this.toogleElements();
         }
+
+        var $element = jQuery('input[name="user[change_password]"]');
+        if ($element.length > 0) {
+            this.toogleSubElements();
+        }
     },
 
     // --------------------------------------------------------------------------------------------
@@ -48,6 +53,7 @@ dist.Form.User.Global.prototype = {
 
     initEvents: function () {
         jQuery('#change_password').off('click.user').on('click.user', jQuery.proxy(this.toogleElements, this));
+        jQuery('input[name="user[change_password]"]').off('click.user').on('click.user', jQuery.proxy(this.toogleSubElements, this));
     },
 
     toogleElements: function () {
@@ -61,6 +67,18 @@ dist.Form.User.Global.prototype = {
             jQuery('#password_match').parents('.form-group').hide();
         }
 
+    },
+
+    toogleSubElements:function () {
+        var $target = jQuery('input[name="user[change_password]"]');
+
+        if ($target.is(':checked')) {
+            jQuery('input[name="user[password]"]').parents('.form-group').show();
+            jQuery('input[name="user[password_match]"]').parents('.form-group').show();
+        } else {
+            jQuery('input[name="user[password]"]').parents('.form-group').hide();
+            jQuery('input[name="user[password_match]"]').parents('.form-group').hide();
+        }
     }
 
 

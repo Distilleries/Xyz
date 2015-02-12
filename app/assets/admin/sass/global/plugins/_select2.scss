@@ -710,7 +710,7 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 
 
 
-.form-control .select2-choice {
+.select2-container .select2-choice {
     border: 1px solid $input-border;
     background-color: #fff;
     background-image: none;
@@ -727,9 +727,9 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 }
 
 .select2-drop {
-    border: 1px solid $input-border; 
+    border: 1px solid $input-border;
     background-color: #fff;
-    background-image: none;    
+    background-image: none;
     -webkit-box-shadow: none;
             box-shadow: none;
     filter: none;
@@ -774,9 +774,9 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
     margin: 0;
     outline: 0;
     border: 1px solid $input-border;
-    webkit-appearance: none !important;   
-    color: #333333;         
-    outline: 0;    
+    webkit-appearance: none !important;
+    color: #333333;
+    outline: 0;
     box-shadow: none;
     height: auto !important;
     min-height: 26px;
@@ -784,7 +784,7 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
     line-height: 20px;
     font-size: 14px;
     font-weight: normal;
-    vertical-align: top;  
+    vertical-align: top;
     background-color: #ffffff;
     -webkit-box-shadow: none;
             box-shadow: none;
@@ -848,7 +848,7 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
     font-style: normal;
 }
 
-.select2-results .select2-highlighted em {  
+.select2-results .select2-highlighted em {
     background: transparent;
 }
 
@@ -866,26 +866,26 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 }
 
 .select2-container-multi {
-    @include border-radius(4px);      
+    @include border-radius(4px);
 
     .select2-choices {
-        @include border-radius(4px);       
+        @include border-radius(4px);
     }
 
-    &.select2-dropdown-open {        
-        @include border-radius(4px 4px 0 0);       
+    &.select2-dropdown-open {
+        @include border-radius(4px 4px 0 0);
 
         .select2-choices {
-            @include border-radius(4px 4px 0 0);       
-        }    
-    }      
+            @include border-radius(4px 4px 0 0);
+        }
+    }
 
     &.select2-dropdown-open.select2-drop-above {
-        @include border-radius(0 0 4px 4px);       
+        @include border-radius(0 0 4px 4px);
 
         .select2-choices {
-            @include border-radius(0 0 4px 4px);       
-        } 
+            @include border-radius(0 0 4px 4px);
+        }
     }
 }
 
@@ -932,7 +932,7 @@ Color variants
 
     .has-#{$state} .select2-container.select2-dropdown-open .select2-choice,
     .has-#{$state} .select2-container.select2-dropdown-open .select2-choices {
-      border-color: $color; 
+      border-color: $color;
     }
 
     .has-#{$state} .select2-container.select2-dropdown-open .select2-choice > span {
@@ -942,9 +942,12 @@ Color variants
 
 @include select2-variant("warning", $state-warning-border);
 @include select2-variant("error", $state-danger-border);
-@include select2-variant("success", $state-success-border);  
+@include select2-variant("success", $state-success-border);
 
 
+.select2-container{
+  width: 100%;
+}
 /* Fix z-index when select2 opened in modals*/
 .modal-open .select2-drop-mask {
     z-index: $zindex-modal + 1;
@@ -953,7 +956,7 @@ Color variants
 .modal-open .select2-drop {
     z-index: $zindex-modal + 2;
 }
- 
+
 .modal-open .select2-search {
     z-index: $zindex-modal + 3;
 }

@@ -3,6 +3,6 @@
 
 
 
-class LanguageController extends \Verdikt\Controllers\Admin\LanguageController{
+class LanguageController extends \Distilleries\Expendable\Controllers\Admin\LanguageController{
 
 }

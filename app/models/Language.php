@@ -1,8 +1,8 @@
 <?php
 
-class Language extends \Verdikt\Models\BaseModel {
+class Language extends \Distilleries\Expendable\Models\BaseModel {
 
-    use \Verdikt\Models\StatusTrait;
+    use \Distilleries\Expendable\Models\StatusTrait;
 
     protected $fillable = [
         'libelle',

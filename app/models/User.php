@@ -5,9 +5,9 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends \Verdikt\Models\BaseModel implements UserInterface, RemindableInterface {
+class User extends \Distilleries\Expendable\Models\BaseModel implements UserInterface, RemindableInterface {
 
-    use UserTrait, RemindableTrait, \Verdikt\Models\StatusTrait;
+    use UserTrait, RemindableTrait, \Distilleries\Expendable\Models\StatusTrait;
 
     protected $fillable = [
         'email',
@@ -39,7 +39,7 @@ class User extends \Verdikt\Models\BaseModel implements UserInterface, Remindabl
     public static function boot()
     {
         parent::boot();
-        User::observe(new \Verdikt\Observers\PasswordObserver);
+        User::observe(new \Distilleries\Expendable\Observers\PasswordObserver);
     }
 
 

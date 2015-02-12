@@ -13,7 +13,7 @@ class Administrator extends User {
             return true;
         }
 
-        return \Verdikt\Helpers\PermissionUtils::haveAccess($key);
+        return \Distilleries\Expendable\Helpers\PermissionUtils::haveAccess($key);
 
     }
 

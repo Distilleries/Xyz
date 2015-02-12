@@ -60,10 +60,14 @@ dist.Form.Fields.DatatableUtils = {
 
             for (var i in data) {
                 if (data[i].name != '_token') {
-                    $('[name="' + data[i].name + '"]').val('');
-                    if ($('[name="' + data[i].name + '"]').is("select") && $('[name="' + data[i].name + '"]').hasClass('jqTransformHidden')) {
-                        $('ul li:first-child a', $('[name="' + data[i].name + '"]').parent()).click();
+                   var that =  $('[name="' + data[i].name + '"]');
+                    that.val('');
+
+                    var select2 = $(that).data('select2');
+                    if(select2){
+                        $(that).select2("val", "");
                     }
+
                 }
             }
 

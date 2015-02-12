@@ -1,6 +1,6 @@
 <?php namespace Admin;
 
 
-class PermissionController extends \Verdikt\Controllers\Admin\PermissionController {
+class PermissionController extends \Distilleries\Expendable\Controllers\Admin\PermissionController {
 
 }

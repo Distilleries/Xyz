@@ -93,7 +93,7 @@ return array(
         |
         */
 
-        'table_view' => 'admin.form.components.datatable.template',
+        'table_view' => 'datatable-builder::form.components.datatable.template',
 
 
         /*
@@ -106,7 +106,7 @@ return array(
         |
         */
 
-        'script_view' => 'admin.form.components.datatable.javascript',
+        'script_view' => 'datatable-builder::form.components.datatable.javascript',
 
 
     ),

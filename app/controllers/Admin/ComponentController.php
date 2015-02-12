@@ -4,6 +4,6 @@
 namespace Admin;
 
 
-class ComponentController  extends \Verdikt\Controllers\Admin\ComponentController{
+class ComponentController  extends \Distilleries\Expendable\Controllers\Admin\ComponentController{
 
 } 

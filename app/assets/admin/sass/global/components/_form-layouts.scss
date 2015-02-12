@@ -112,7 +112,7 @@ Form Layouts
 
         &.top {
             margin-top: 0;
-            margin-bottom: 20px;
+            //margin-bottom: 20px;
             border-top: 0;
             border-bottom: 1px solid #e5e5e5;
 
@@ -258,7 +258,7 @@ Form Layouts
         }
 
         .control-label {
-            padding-top: 20px;
+            padding-top: 15px;
 
             @media (max-width: $screen-sm-max) { /* 991px */
                 padding-top: 10px;

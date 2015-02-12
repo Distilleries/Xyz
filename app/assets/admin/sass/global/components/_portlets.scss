@@ -367,7 +367,7 @@ Portlets
 //@include porlet-solid("red", $metronic-blue-text);
 
 /* Solid bordered portlet */
-
+.portlet.solid.unbordered > .portlet-title,
 .portlet.solid.bordered > .portlet-title {
   margin-bottom: 10px;
 }
@@ -486,6 +486,17 @@ Portlets
         }
     }
 
+    &.unbordered {
+        border: none !important;
+        padding: 0 !important;
+        margin-bottom: 5px !important;
+
+        > .portlet-title {
+            border-bottom: 1px solid #eee;
+            background-color: #f5f5f5;
+            padding-left: 15px;
+        }
+    }
     &.bg-inverse {
         background: #F7F7F7;
     }

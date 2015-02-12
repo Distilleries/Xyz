@@ -2,6 +2,6 @@
 
 
 
-class ServiceController extends \Verdikt\Controllers\Admin\ServiceController {
+class ServiceController extends \Distilleries\Expendable\Controllers\Admin\ServiceController {
 
 }
