@@ -1,11 +1,22 @@
-# Default Laravel project with Expendable
+#Default Laravel project with Expendable
+
+
+![logo](http://distilleri.es/markdown/xyz/_images/logo.jpg)
 
 X.y.z is a fresh instance of laravel 4.* with Expendable package configured.
 Check the require before install it.
 
-# Installation
 
-## Require
+##Table of contents
+1. [Require](#require)
+1. [Installation](#installation)
+    1. [Create project](#1-create-project)
+    1. [Environment and configuration](#2-environment-and-configuration)
+        1. [Database and translation configuration](#database-and-translation-configuration)
+        1. [Vhost](#vhost)
+
+
+##Require
 To use this project you have to install:
 
 1. Php 5.5 or more
@@ -16,28 +27,27 @@ To use this project you have to install:
 6. NodeJs version 0.10.33
 7. gulp in global (npm install gulp -g)
 
+    
+##Installation
 
-## 1.Create project
+
+###1.Create project
 When you want create a new empty project with composer use this command:
 
-```
-
+```ssh
 composer create-project distilleries/xyz
-
 ```
 
 If you doesn't want use composer just checkout the project and run composer install:
 
-```
-
+```ssh
 git clone https://github.com/Distilleries/Xyz.git
 composer install
-
 ```
 
-## 2.Environment and configuration
+###2.Environment and configuration
 
-### Database and translation configuration
+#### Database and translation configuration
 
 1. Create a file `.env and put the name of your environment (local,production,staging...).
 2. Create a file `.env.ENVIRONMENT.php` (Replace ENVIRONMENT by the name put one the .env). 
@@ -73,7 +83,7 @@ composer update
 ```
 
 
-### Vhost
+####Vhost
 
 Configuration your virtual host with `/public` folder in site root.
 
