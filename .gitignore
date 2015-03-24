@@ -2,15 +2,12 @@
 /vendor
 composer.phar
 composer.lock
-.env.*.php
-.env.php
 .DS_Store
 Thumbs.db
 .idea
-.env*
+.env
 node_modules
 .sass-cache
 public/assets
 bower_components
-app/storage/*
 npm-debug.log

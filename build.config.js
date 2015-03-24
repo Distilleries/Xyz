@@ -46,39 +46,36 @@ module.exports = {
                 'bower_components/jquery-locationpicker-plugin/src/locationpicker.jquery.js',
                 'bower_components/iCheck/icheck.js',
                 'bower_components/jquery.inputmask/dist/jquery.inputmask.bundle.min.js',
-                'vendor/distilleries/expendable/assets/admin/js/lib/*.js',
-                'vendor/distilleries/expendable/assets/admin/js/**/*.js',
-                'app/assets/admin/js/**/*.js'
+                'vendor/distilleries/datatable-builder/src/resources/assets/js/**.js',
+                'vendor/distilleries/expendable/src/resources/assets/admin/js/lib/*.js',
+                'vendor/distilleries/expendable/src/resources/assets/admin/js/**/*.js',
+                'resources/assets/admin/js/**/*.js'
 
             ],
             sass: [
-                'app/assets/admin/sass/application.admin.scss'
+                'resources/assets/admin/sass/application.admin.scss'
 
             ],
             sass_watch: [
-                'app/assets/admin/sass/**/*'
+                'resources/assets/admin/sass/**/*'
             ],
             css: [
                 'bower_components/jQuery-Validation-Engine/css/validationEngine.jquery.css',
                 'bower_components/bootstrap-datepicker/css/datepicker.css'
             ],
             img: [
-                'vendor/distilleries/expendable/assets/admin/images/**/*',
-                'app/assets/admin/images/**/*'
+                'vendor/distilleries/expendable/src/resources/assets/admin/images/**/*',
+                'resources/assets/admin/images/**/*'
             ],
             fonts: [
                 'bower_components/bootstrap-sass/assets/fonts/bootstrap/*',
-                'app/assets/admin/fonts/*'
+                'resources/assets/admin/fonts/*'
             ],
 
             copyfiles: [
                 [
                     ['bower_components/tinymce-dist/skins/**'],
                     'public/assets/admin/js/skins'
-                ],
-                [
-                    ['vendor/verdikt/moxiemanager/**'],
-                    'public/assets/moxiemanager'
                 ]
             ]
         }
@@ -110,21 +107,21 @@ module.exports = {
         app_files: {
             js: [
 
-                'app/assets/front/js/**/*.js'
+                'resources/assets/front/js/**/*.js'
 
             ],
             sass: [
-                'app/assets/front/sass/application.scss'
+                'resources/assets/front/sass/application.scss'
 
             ],
             sass_watch: [
-                'app/assets/front/sass/**/*'
+                'resources/assets/front/sass/**/*'
             ],
             css: [
                 'public/assets/front/css/application.css'
             ],
             img: [
-                'app/assets/front/images/**/*'
+                'resources/assets/front/images/**/*'
             ],
             fonts: [
                 'bower_components/bootstrap-sass/assets/fonts/bootstrap/*'

@@ -1,9 +1,6 @@
 #Default Laravel project with Expendable
 
-
-![logo](http://distilleri.es/markdown/xyz/_images/logo.jpg)
-
-X.y.z is a fresh instance of laravel 4.* with Expendable package configured.
+X.y.z is a fresh instance of laravel 5.* with Expendable package configured.
 Check the require before install it.
 
 
@@ -20,7 +17,6 @@ Check the require before install it.
 To use this project you have to install:
 
 1. Php 5.5 or more
-2. Active the gettext extension
 3. Active mpcrypt
 4. Composer (https://getcomposer.org/download/)[https://getcomposer.org/download/]
 5. Sass (`gem install sass`)
@@ -49,30 +45,9 @@ composer install
 
 #### Database and translation configuration
 
-1. Create a file `.env and put the name of your environment (local,production,staging...).
-2. Create a file `.env.ENVIRONMENT.php` (Replace ENVIRONMENT by the name put one the .env). 
-If the name is production just put the name `.env.php`.
+1. Edit `.env` file and put the name of your environment (local,production,staging...).
+1. Edit `.env` add your database ocnfiguration.
 
-
-In this file put copy this configuration and replace by your value:
-
-```php
-
-    return[
-        'database'=>[
-            'host'      => 'localhost',
-            'database'  => '',
-            'username'  => 'root',
-            'password'  => ''
-        ],
-        'gettext'=>[
-            'default_locale'      => 'en_US',
-            'default_encoding'  => 'UTF-8',
-
-        ]
-    ];
-    
-```
 
 Create your database and after run the update composer:
 

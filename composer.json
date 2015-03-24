@@ -1,71 +1,61 @@
 {
   "name": "distilleries/xyz",
-  "description": "Empty project.",
+  "description": "X.y.z is a fresh instance of laravel 5.* with Expendable package configured.",
   "keywords": [
     "framework",
-    "laravel"
-  ],
-  "authors": [
-    {
-      "name": "Maxime Francois",
-      "email": "kezho@me.com"
-    }
+    "laravel",
+    "expendable",
+    "distilleries",
+    "gulp",
+    "sass"
   ],
   "license": "MIT",
   "type": "project",
-  "version": "1.0.0",
-  "repositories": [
-  ],
   "require": {
-    "php": ">=5.5.0",
-    "laravel/framework": "4.2.*",
-    "distilleries/expendable": "1.*"
+    "laravel/framework": "5.0.*",
+    "distilleries/expendable": "2.0.*"
   },
   "require-dev": {
-    "way/generators": "~2.0",
-    "fzaninotto/faker": "1.4.*",
-    "codeception/codeception": "*"
+    "phpunit/phpunit": "~4.0",
+    "phpspec/phpspec": "~2.1",
+    "fzaninotto/faker": "1.4.*"
   },
   "autoload": {
     "classmap": [
-      "app/commands",
-      "app/controllers",
-      "app/models",
-      "app/database/migrations",
-      "app/database/seeds",
-      "app/tests/TestCase.php"
+      "database"
     ],
     "psr-4": {
-      "Xyz\\": "app/Xyz"
+      "App\\": "app/"
     }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ]
   },
   "scripts": {
     "post-install-cmd": [
       "php artisan clear-compiled",
-      "php artisan optimize",
-      "php artisan down",
-      "npm install",
-      "gulp",
-      "php artisan up"
+      "php artisan optimize"
     ],
     "post-update-cmd": [
+      "php artisan down",
       "php artisan clear-compiled",
       "php artisan optimize",
-      "php artisan down",
-      "npm install",
-      "php artisan migrate --package='distilleries/expendable' --force",
+      "php artisan vendor:publish",
       "php artisan migrate --force",
+      "npm install",
       "gulp",
       "php artisan up"
     ],
     "post-create-project-cmd": [
-      "php artisan key:generate"
+      "php -r \"copy('.env.example', '.env');\"",
+      "php artisan key:generate",
+      "php artisan vendor:publish"
     ]
   },
   "config": {
     "preferred-install": "dist"
   },
-
-  "prefer-stable": true,
-  "minimum-stability": "dev"
+  "minimum-stability": "stable"
 }
