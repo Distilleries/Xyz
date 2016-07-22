@@ -134,7 +134,15 @@ return array(
         |--------------------------------------------------------------------------
         */
 
-        'line_ending' => "\r\n"
+        'line_ending' => "\r\n",
+
+        /*
+        |--------------------------------------------------------------------------
+        | setUseBom
+        |--------------------------------------------------------------------------
+        */
+
+        'use_bom' => false
     ),
 
     'export'     => array(
@@ -359,7 +367,7 @@ return array(
         |
         | The sheet has a heading (first) row which we can use as attribute names
         |
-        | Options: true|false|slugged|ascii|numeric|hashed|trans|original
+        | Options: true|false|slugged|slugged_with_count|ascii|numeric|hashed|trans|original
         |
         */
 

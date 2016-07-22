@@ -16,6 +16,7 @@ return [
             'emails.password'
         ]
     ],
+    'remember_me'         => true,
     'menu'                => \Distilleries\Expendable\Config\MenuConfig::menu([], 'beginning'),
     'menu_left_collapsed' => false,
     'state'               => [
@@ -47,5 +48,9 @@ return [
             'position' => 3,
             'action'   => 'getEdit'
         ],
+    ],
+    'auth'                => [
+        'security_enabled' => true,
+        'nb_of_try'        => 5
     ]
 ];

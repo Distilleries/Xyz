@@ -11,15 +11,6 @@
 |
 */
 
-use \Route;
-
-Route::get('/', 'HomeController@index');
-
-Route::group(array('middleware' => 'auth'), function ()
-{
-
-    Route::group(array('before' => 'permission', 'prefix' => config('expendable::admin_base_uri')), function ()
-    {
-        Route::controller('post', 'Admin\PostController');
-    });
+Route::get('/', function () {
+    return view('welcome');
 });
