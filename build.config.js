@@ -97,7 +97,11 @@ module.exports = {
                 ]
             }
         }
-    }
+    },
 
+    version: [
+        './bower.json',
+        './package.json'
+    ]
 
 };
