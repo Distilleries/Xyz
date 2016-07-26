@@ -44,7 +44,7 @@
             "php artisan clear-compiled",
             "php artisan optimize",
             "npm install",
-            "gulp",
+            "gulp --production",
             "php artisan migrate --force"
         ],
         "post-update-cmd": [
