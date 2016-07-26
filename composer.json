@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "distilleries/expendable": "2.7.*"
+        "distilleries/expendable": "2.8.*"
     },
     "require-dev": {
         "laracasts/generators": "dev-master",
