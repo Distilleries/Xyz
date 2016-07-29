@@ -25,11 +25,11 @@ module.exports = {
 
                 copyfiles: [
                     [
-                        ['resources/assets/frontend/svg/**'],
+                        ['resources/assets/frontend/svg'],
                         'public/assets/frontend/svg'
                     ],
                     [
-                        ['bower_components/font-awesome/fonts/*', 'resources/assets/front/fonts/**/*'],
+                        ['bower_components/font-awesome/fonts', 'resources/assets/front/fonts'],
                         'public/assets/frontend/fonts'
                     ]
                 ]
@@ -75,11 +75,11 @@ module.exports = {
 
                 copyfiles: [
                     [
-                        ['bower_components/tinymce-dist/skins/**/*'],
+                        ['bower_components/tinymce-dist/skins'],
                         'public/assets/backend/js/skins'
                     ],
                     [
-                        ['resources/moximanager/**/*'],
+                        ['resources/moximanager'],
                         'public/assets/moxiemanager'
                     ],
                     [
