@@ -29,8 +29,10 @@ for (var i in userConfig.site) {
     elixir(function (mix) {
         config.app_files.css.push(config.assetsPath + '/css');
         config.app_files.js.push(config.assetsPath + '/js/application.js');
+        config.app_files.css.push(config.publicPath + '/css/app.css');
+
         mix
-            .sass(config.app_files.sass)
+            .sass(config.app_files.sass,config.publicPath + '/css/app.css')
             .styles(config.app_files.css, config.publicPath + '/css', './')
             .copy(config.assetsPath + '/images', config.publicPath + '/images')
             .browserify('application.js')
