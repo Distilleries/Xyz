@@ -7,6 +7,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "babel-polyfill": "^6.9.1",
     "bootstrap-sass": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-bump": "^0.1.11",

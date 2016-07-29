@@ -30,7 +30,7 @@ for (var i in userConfig.site) {
         config.app_files.css.push(config.assetsPath + '/css');
         config.app_files.js.push(config.assetsPath + '/js/application.js');
         mix
-            .sass(config.app_files.sass, config.assetsPath + '/css')
+            .sass(config.app_files.sass)
             .styles(config.app_files.css, config.publicPath + '/css', './')
             .copy(config.assetsPath + '/images', config.publicPath + '/images')
             .browserify('application.js')

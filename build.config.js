@@ -19,10 +19,6 @@ module.exports = {
                 css: [
                     'bower_components/font-awesome/css/font-awesome.css'
                 ],
-                html: [
-                    'resources/assets/front/js/Components/**/*.html'
-                ],
-
                 copyfiles: [
                     [
                         ['resources/assets/frontend/svg'],
@@ -69,10 +65,6 @@ module.exports = {
                     'bower_components/bootstrap-datepicker/css/datepicker.css',
                     'bower_components/font-awesome/css/font-awesome.min.css'
                 ],
-                html: [
-                    'resources/assets/admin/html/**/*.html'
-                ],
-
                 copyfiles: [
                     [
                         ['bower_components/tinymce-dist/skins'],

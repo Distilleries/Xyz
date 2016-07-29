@@ -16,12 +16,12 @@ Check the require before install it.
 ##Require
 To use this project you have to install:
 
-1. Php 5.5 or more
+1. Php 5.6 or more
 3. Active mpcrypt
 4. Composer (https://getcomposer.org/download/)[https://getcomposer.org/download/]
 5. Sass (`gem install sass`)
 6. Bower
-6. NodeJs version 0.10.33
+6. NodeJs version 3.0.0
 7. gulp in global (npm install gulp -g)
 
     
