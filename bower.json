@@ -12,6 +12,7 @@
     "Gemfile"
   ],
   "dependencies": {
+    "jquery": "2.1.*",
     "plupload": "2.1.8",
     "bootstrap-sass": "~3.3.6",
     "bootstrap-confirmation2": "2.1.*",

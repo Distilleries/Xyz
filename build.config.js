@@ -36,7 +36,6 @@ module.exports = {
             publicPath: 'public/assets/backend',
             app_files: {
                 js: [
-                    'bower_components/jquery/dist/jquery.min.js',
                     'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
                     'bower_components/bootstrap-confirmation2/bootstrap-confirmation.min.js',
                     'bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js',

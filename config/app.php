@@ -4,6 +4,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    */
+
+    'name' => 'My Application',
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
@@ -110,6 +122,8 @@ return [
 
     'log' => env('APP_LOG', 'single'),
 
+    'log_level' => env('APP_LOG_LEVEL', 'debug'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -138,6 +152,7 @@ return [
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
@@ -148,23 +163,31 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        /*
+         * Package Service Providers...
+         */
 
         Wpb\String_Blade_Compiler\ViewServiceProvider::class,
         Distilleries\FormBuilder\FormBuilderServiceProvider::class,
+        Distilleries\DatatableBuilder\DatatableBuilderServiceProvider::class,
         Distilleries\PermissionUtil\PermissionUtilServiceProvider::class,
         Distilleries\MailerSaver\MailerSaverServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Distilleries\Expendable\ExpendableServiceProvider::class,
         Distilleries\Expendable\ExpendableRouteServiceProvider::class,
-        Distilleries\DatatableBuilder\DatatableBuilderServiceProvider::class,
+
+
+        //
 
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
 
     ],
 
@@ -197,6 +220,7 @@ return [
         'Hash'           => Illuminate\Support\Facades\Hash::class,
         'Lang'           => Illuminate\Support\Facades\Lang::class,
         'Log'            => Illuminate\Support\Facades\Log::class,
+        'Notification'   => Illuminate\Support\Facades\Notification::class,
         'Password'       => Illuminate\Support\Facades\Password::class,
         'Queue'          => Illuminate\Support\Facades\Queue::class,
         'Redirect'       => Illuminate\Support\Facades\Redirect::class,
@@ -210,13 +234,15 @@ return [
         'URL'            => Illuminate\Support\Facades\URL::class,
         'Validator'      => Illuminate\Support\Facades\Validator::class,
         'View'           => Illuminate\Support\Facades\View::class,
-        'Mail'           => Distilleries\MailerSaver\Facades\Mail::class,
-        'FormBuilder'    => Distilleries\FormBuilder\Facades\FormBuilder::class,
-        'Form'           => Illuminate\Html\FormFacade::class,
-        'HTML'           => Illuminate\Html\HtmlFacade::class,
-        'Datatable'      => Distilleries\DatatableBuilder\Facades\DatatableBuilder::class,
-        'PermissionUtil' => Distilleries\PermissionUtil\Facades\PermissionUtil::class,
-        'Excel'          => Maatwebsite\Excel\Facades\Excel::class,
+        'Mail'           => \Distilleries\MailerSaver\Facades\Mail::class,
+        'FormBuilder'    => \Distilleries\FormBuilder\Facades\FormBuilder::class,
+        'Form'           => \Illuminate\Html\FormFacade::class,
+        'HTML'           => \Illuminate\Html\HtmlFacade::class,
+        'Datatable'      => \Distilleries\DatatableBuilder\Facades\DatatableBuilder::class,
+        'PermissionUtil' => \Distilleries\PermissionUtil\Facades\PermissionUtil::class,
+        'Excel'          => \Maatwebsite\Excel\Facades\Excel::class,
+
+
     ],
 
 ];

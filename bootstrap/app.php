@@ -11,9 +11,20 @@
 |
 */
 
-$app = new \App\Fondation\Application(
-    realpath(__DIR__.'/../')
+
+
+$app = new \Distilleries\Expendable\Fondation\Application(
+    realpath(__DIR__ . '/../')
 );
+
+
+
+$app->bind('path.storage', function ($app) {
+    $path = env('STORAGE_PATH', base_path() . DIRECTORY_SEPARATOR . 'storage');
+
+    return $path;
+});
+
 
 /*
 |--------------------------------------------------------------------------
