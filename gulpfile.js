@@ -28,7 +28,7 @@ for (var i in userConfig.site) {
     elixir.config.publicPath = config.publicPath;
     elixir(function (mix) {
         config.app_files.css.push(config.assetsPath + '/css');
-        config.app_files.js.push(config.assetsPath + '/js/application.js');
+        config.app_files.js.push(config.publicPath + '/js/application.js');
         config.app_files.css.push(config.publicPath + '/css/app.css');
 
         mix
