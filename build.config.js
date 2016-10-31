@@ -7,12 +7,10 @@ module.exports = {
         front: {
             assetsPath: 'resources/assets/frontend',
             publicPath: 'public/assets/frontend',
-
+            sass_watch: 'resources/assets/frontend/**/*.scss',
+            
             app_files: {
-                js: [
-                    'bower_components/vue/dist/vue.js',
-                    'bower_components/vue-resource/dist/vue-resource.js'
-                ],
+                js: [],
 
                 sass: ['application.scss'],
 
@@ -34,6 +32,7 @@ module.exports = {
         admin: {
             assetsPath: 'resources/assets/backend',
             publicPath: 'public/assets/backend',
+            sass_watch: 'resources/assets/backend/**/*.scss',
             app_files: {
                 js: [
                     'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
@@ -53,8 +52,6 @@ module.exports = {
                     'bower_components/tinymce-dist/tinymce.jquery.min.js',
                     'bower_components/tinymce-dist/plugins/**/*.min.js',
                     'bower_components/tinymce-dist/themes/modern/theme.min.js',
-                    'bower_components/vue/dist/vue.min.js',
-                    'bower_components/vue-resource/dist/vue-resource.min.js',
                     'vendor/distilleries/datatable-builder/src/resources/assets/js/**/*.js',
                     'vendor/distilleries/expendable/src/resources/assets/admin/js/**/*.js'
                 ],

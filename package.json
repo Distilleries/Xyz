@@ -15,6 +15,10 @@
     "gulp-filter": "^2.0.0",
     "gulp-tag-version": "^1.2.1",
     "laravel-elixir": "^5.0.0",
-    "laravel-elixir-vueify": "^1.0.3"
+    "laravel-elixir-vueify": "^1.0.3",
+    "vue": "^1.0.0",
+    "vue-router": "0.7.13",
+    "vue-resource": "0.9.3",
+    "susy": "2.2.12"
   }
 }

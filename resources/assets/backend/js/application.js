@@ -1,3 +1,11 @@
+import "babel-polyfill"
+import Vue from 'vue'
+import VueResource from 'vue-resource'
+
+
+Vue.use(VueResource);
+
+
 // Check instance
 if (typeof dist == "undefined" || !dist) {
     var dist = {};

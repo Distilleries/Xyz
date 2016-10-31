@@ -44,7 +44,8 @@ for (var i in userConfig.site) {
         mix.version(['css/all.css', 'js/all.js']);
 
     });
-
+    
+    elixir.Task.find('sass').watch(config.sass_watch);
 }
 
 elixir(function (mix) {
