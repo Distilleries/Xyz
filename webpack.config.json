@@ -1,0 +1,42 @@
+{
+    "frontend": {
+        "scripts": [
+            "node_modules/gsap/src/uncompressed/TweenMax.js"
+        ],
+        "styles": []
+    },
+    "backend": {
+        "scripts": [
+            "node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js",
+            "node_modules/bootstrap-confirmation2/bootstrap-confirmation.min.js",
+            "node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js",
+            "node_modules/datatables/media/js/jquery.dataTables.js",
+            "node_modules/easy-pie-chart/dist/jquery.easypiechart.min.js",
+            "node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js",
+            "node_modules/jquery-locationpicker/dist/locationpicker.jquery.min.js",
+            "node_modules/jquery.uniform/dist/jquery.uniform.min.js",
+            "node_modules/iCheck/icheck.min.js",
+            "node_modules/jstree/dist/jstree.min.js",
+            "node_modules/select2/select2.js",
+            "node_modules/jquery-slimscroll/jquery.slimscroll.min.js",
+            "node_modules/tinymce/tinymce.js",
+            "node_modules/tinymce/plugins/*/plugin.js",
+            "node_modules/tinymce/themes/modern/theme.js",
+            "vendor/distilleries/datatable-builder/src/resources/assets/js/**/*.js",
+            "vendor/distilleries/expendable/src/resources/assets/backend/js/**/*.js"
+        ],
+        "styles": [
+            "node_modules/select2/select2.css"
+        ]
+    },
+    "copy": {
+
+        "vendor/distilleries/expendable/src/resources/assets/backend/images":"public/assets/backend/images",
+        "resources/assets/backend/images": "public/assets/backend/images",
+        "resources/assets/backend/fonts": "public/assets/backend/fonts",
+        "resources/assets/frontend/images": "public/assets/frontend/images",
+        "resources/assets/frontend/fonts": "public/assets/frontend/fonts",
+        "node_modules/datatables/media/images": "public/assets/images",
+        "node_modules/tinymce/skins/lightgray": "public/assets/backend/skins/lightgray"
+    }
+}

@@ -1,95 +1,65 @@
 module.exports = {
-    proxy:{
-        enabled:true,
-        domain:'http://xyz.dev'
-    },
-    site: {
-        front: {
-            assetsPath: 'resources/assets/frontend',
-            publicPath: 'public/assets/frontend',
-            sass_watch: 'resources/assets/frontend/**/*.scss',
-            
-            app_files: {
-                js: [],
-
-                sass: ['application.scss'],
-
-                css: [
-                    'bower_components/font-awesome/css/font-awesome.css'
+    frontend: {
+        publicPath: 'public/assets/frontend',
+        app_files: {
+            script: [
+            ],
+            js: 'resources/assets/frontend/js/main.js',
+            sass: 'resources/assets/frontend/sass/application.scss',
+            css: [
+                //
+            ],
+            copyfiles: [
+                [
+                    ['resources/assets/frontend/svg'],
+                    'public/assets/frontend/svg'
                 ],
-                copyfiles: [
-                    [
-                        ['resources/assets/frontend/svg'],
-                        'public/assets/frontend/svg'
-                    ],
-                    [
-                        ['bower_components/font-awesome/fonts', 'resources/assets/front/fonts'],
-                        'public/assets/frontend/fonts'
-                    ]
+                [
+                    ['resources/assets/frontend/fonts'],
+                    'public/assets/frontend/fonts'
+                ],
+                [
+                    ['resources/assets/frontend/images'],
+                    'public/assets/frontend/images'
                 ]
-            }
-        },
-        admin: {
-            assetsPath: 'resources/assets/backend',
-            publicPath: 'public/assets/backend',
-            sass_watch: 'resources/assets/backend/**/*.scss',
-            app_files: {
-                js: [
-                    'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
-                    'bower_components/bootstrap-confirmation2/bootstrap-confirmation.min.js',
-                    'bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js',
-                    'bower_components/jQuery-Validation-Engine/js/jquery.validationEngine.js',
-                    'bower_components/datatables/media/js/jquery.dataTables.min.js',
-                    'bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js',
-                    'bower_components/jquery.inputmask/dist/jquery.inputmask.bundle.min.js',
-                    'bower_components/jquery-locationpicker-plugin/dist/locationpicker.jquery.min.js',
-                    'bower_components/jquery.uniform/jquery.uniform.min.js',
-                    'bower_components/iCheck/icheck.min.js',
-                    'bower_components/jstree/dist/jstree.min.js',
-                    'bower_components/placeholders/dist/placeholders.jquery.min.js',
-                    'bower_components/select2/select2.min.js',
-                    'bower_components/slimScroll/jquery.slimscroll.min.js',
-                    'bower_components/tinymce-dist/tinymce.jquery.min.js',
-                    'bower_components/tinymce-dist/plugins/**/*.min.js',
-                    'bower_components/tinymce-dist/themes/modern/theme.min.js',
-                    'vendor/distilleries/datatable-builder/src/resources/assets/js/**/*.js',
-                    'vendor/distilleries/expendable/src/resources/assets/admin/js/**/*.js'
-                ],
-                sass: ['application.admin.scss'],
-                css: [
-                    'bower_components/jQuery-Validation-Engine/css/validationEngine.jquery.css',
-                    'bower_components/bootstrap-datepicker/css/datepicker.css',
-                    'bower_components/font-awesome/css/font-awesome.min.css'
-                ],
-                copyfiles: [
-                    [
-                        ['bower_components/tinymce-dist/skins'],
-                        'public/assets/backend/js/skins'
-                    ],
-                    [
-                        ['resources/moximanager'],
-                        'public/assets/moxiemanager'
-                    ],
-                    [
-                        ['vendor/distilleries/expendable/src/resources/assets/admin/images'],
-                        'public/assets/backend/images'
-                    ],
-                    [
-                        [
-                            'bower_components/bootstrap-sass/assets/fonts/bootstrap',
-                            'bower_components/font-awesome/fonts',
-                            'resources/assets/front/fonts'
-                        ],
-                        'public/assets/backend/fonts'
-                    ]
-                ]
-            }
+            ]
         }
     },
+    backend: {
+        publicPath: 'public/assets/backend',
+        app_files: {
+            scripts: [
 
-    version: [
-        './bower.json',
-        './package.json'
-    ]
-
+                'vendor/distilleries/datatable-builder/src/resources/assets/js/**/*.js',
+                'vendor/distilleries/expendable/src/resources/assets/admin/js/**/*.js'
+            ],
+            js: 'resources/assets/backend/js/main.js',
+            sass: 'resources/assets/backend/sass/application.admin.scss',
+            css: [
+                'bower_components/bootstrap-datepicker/css/datepicker.css',
+                'bower_components/font-awesome/css/font-awesome.min.css'
+            ],
+            copyfiles: [
+                [
+                    ['bower_components/tinymce-dist/skins'],
+                    'public/assets/backend/js/skins'
+                ],
+                [
+                    [
+                        'vendor/distilleries/expendable/src/resources/assets/admin/images',
+                        'resources/assets/backend/images'
+                    ],
+                    'public/assets/backend/images'
+                ],
+                [
+                    [
+                        'bower_components/bootstrap-sass/assets/fonts/bootstrap',
+                        'bower_components/font-awesome/fonts',
+                        'resources/assets/backend/fonts'
+                    ],
+                    'public/assets/backend/fonts'
+                ]
+            ]
+        }
+    }
 };

@@ -6,7 +6,9 @@ return [
         'wrapper_error_class' => 'has-error',
         'label_class'         => 'control-label',
         'field_class'         => 'form-control',
-        'error_class'         => 'text-danger'
+        'help_block_class'    => 'help-block',
+        'error_class'         => 'text-danger',
+        'required_class'      => 'required'
     ],
     // Templates
     'form'          => 'laravel-form-builder::form',
@@ -20,6 +22,7 @@ return [
     'repeated'      => 'laravel-form-builder::repeated',
     'child_form'    => 'laravel-form-builder::child_form',
     'collection'    => 'laravel-form-builder::collection',
+    'static'        => 'laravel-form-builder::static',
 
     'default_namespace' => '',
 

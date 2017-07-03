@@ -1,0 +1,16 @@
+$base-path-font: '../../fonts/';
+
+@mixin registerFont($name) {
+  $fontpath: "#{$base-path-font}#{$name}/#{$name}";
+  @font-face {
+    font-family: "#{$name}";
+    src: url('#{$fontpath}.eot');
+    src: url('#{$fontpath}.eot?#iefix') format('embedded-opentype'),
+    url('#{$fontpath}.woff') format('woff'),
+    url('#{$fontpath}.ttf') format('truetype'),
+    url('#{$fontpath}.svg') format('svg');
+  }
+}
+
+$font-Sample-Regular: 'Font-Sample-Regular';
+// @include registerFont($font-Sample-Regular);

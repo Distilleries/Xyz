@@ -7,5 +7,3 @@ class Kernel extends \Distilleries\Expendable\Http\Kernel
 {
 
 }
-
-

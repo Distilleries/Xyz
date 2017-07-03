@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'My Application',
+    'name' => 'Laravel',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,28 +166,23 @@ return [
         /*
          * Package Service Providers...
          */
-
-        Wpb\String_Blade_Compiler\ViewServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
         Distilleries\FormBuilder\FormBuilderServiceProvider::class,
         Distilleries\DatatableBuilder\DatatableBuilderServiceProvider::class,
         Distilleries\PermissionUtil\PermissionUtilServiceProvider::class,
-        Distilleries\MailerSaver\MailerSaverServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Distilleries\Expendable\ExpendableServiceProvider::class,
         Distilleries\Expendable\ExpendableRouteServiceProvider::class,
 
 
-        //
-
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
 
     ],
 
@@ -208,6 +203,8 @@ return [
         'Artisan'        => Illuminate\Support\Facades\Artisan::class,
         'Auth'           => Illuminate\Support\Facades\Auth::class,
         'Blade'          => Illuminate\Support\Facades\Blade::class,
+        'Broadcast'      => Illuminate\Support\Facades\Broadcast::class,
+        'Bus'            => Illuminate\Support\Facades\Bus::class,
         'Cache'          => Illuminate\Support\Facades\Cache::class,
         'Config'         => Illuminate\Support\Facades\Config::class,
         'Cookie'         => Illuminate\Support\Facades\Cookie::class,
@@ -220,6 +217,7 @@ return [
         'Hash'           => Illuminate\Support\Facades\Hash::class,
         'Lang'           => Illuminate\Support\Facades\Lang::class,
         'Log'            => Illuminate\Support\Facades\Log::class,
+        'Mail'           => Illuminate\Support\Facades\Mail::class,
         'Notification'   => Illuminate\Support\Facades\Notification::class,
         'Password'       => Illuminate\Support\Facades\Password::class,
         'Queue'          => Illuminate\Support\Facades\Queue::class,
@@ -234,14 +232,12 @@ return [
         'URL'            => Illuminate\Support\Facades\URL::class,
         'Validator'      => Illuminate\Support\Facades\Validator::class,
         'View'           => Illuminate\Support\Facades\View::class,
-        'Mail'           => \Distilleries\MailerSaver\Facades\Mail::class,
         'FormBuilder'    => \Distilleries\FormBuilder\Facades\FormBuilder::class,
         'Form'           => Collective\Html\FormFacade::class,
         'HTML'           => Collective\Html\HtmlFacade::class,
         'Datatable'      => \Distilleries\DatatableBuilder\Facades\DatatableBuilder::class,
         'PermissionUtil' => \Distilleries\PermissionUtil\Facades\PermissionUtil::class,
         'Excel'          => \Maatwebsite\Excel\Facades\Excel::class,
-
 
     ],
 
