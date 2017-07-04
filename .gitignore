@@ -1,4 +1,6 @@
 /node_modules
+/public/fonts
+/public/images
 /public/storage
 /public/hot
 /storage/*.key
@@ -8,3 +10,5 @@ Homestead.json
 Homestead.yaml
 /public/assets
 .env
+/public/mix-manifest.json
+/public/mix.js
