@@ -12,7 +12,6 @@
             "node_modules/bootstrap-datepicker/js/bootstrap-datepicker.js",
             "node_modules/datatables/media/js/jquery.dataTables.js",
             "node_modules/easy-pie-chart/dist/jquery.easypiechart.min.js",
-            "node_modules/inputmask/dist/min/jquery.inputmask.bundle.min.js",
             "node_modules/jquery-locationpicker/dist/locationpicker.jquery.min.js",
             "node_modules/jquery.uniform/dist/jquery.uniform.min.js",
             "node_modules/iCheck/icheck.min.js",
