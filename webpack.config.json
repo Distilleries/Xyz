@@ -1,7 +1,6 @@
 {
     "frontend": {
         "scripts": [
-            "node_modules/gsap/src/uncompressed/TweenMax.js"
         ],
         "styles": []
     },
@@ -29,12 +28,10 @@
         ]
     },
     "copy": {
-
-        "vendor/distilleries/expendable/src/resources/assets/backend/images":"public/assets/backend/images",
-        "resources/assets/backend/images": "public/assets/backend/images",
         "resources/assets/backend/fonts": "public/assets/backend/fonts",
-        "resources/assets/frontend/images": "public/assets/frontend/images",
-        "resources/assets/frontend/fonts": "public/assets/frontend/fonts",
+        "resources/assets/backend/images": "public/assets/backend/images",
+        "resources/assets/vendor/moxiemanager": "public/assets/moxiemanager",
+        "vendor/distilleries/expendable/src/resources/assets/backend/images": "public/assets/backend/images",
         "node_modules/datatables/media/images": "public/assets/images",
         "node_modules/tinymce/skins/lightgray": "public/assets/backend/skins/lightgray"
     }
